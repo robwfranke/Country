@@ -22,23 +22,3 @@ console logt. Tip: Als de de documentatie bekijkt en op async zoekt, vindt je ee
 5. response => checken
 
 
-/---------------------------------------------------
-//  Maak een element knopje met actie:
-
-// Door te lopen stappen:
-//
-//     1. Input veld waar iemand iets kan intypen HTML
-// (id = emailInputField)
-//
-// 2. Button met create email HTML
-// (id = createButton)
-//
-// 3. maak event listener van button
-// (createButton.addEventListener)
-//
-// Maak functie voor event listener:
-//
-//
-//     4. selecteer waarde uit invoerveld
-// (const emailInput = document.getElementById("emailInputField"))
-//

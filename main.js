@@ -1,12 +1,3 @@
-// const createButton = document.getElementById("create-Button");
-// console.log("create-Button text",createButton);
-//
-// createButton.addEventListener("click",()=>{
-//
-//     const countryInput = document.getElementById("countryName")
-//     console.log("countryInput", countryInput)
-// });
-
 console.log("amjhgdc")
 
 const searchButton = document.getElementById("searchButton")
@@ -22,7 +13,34 @@ async function getCountryInfo() {
     console.log("country info??", response)
 
 
+//    hieronder opdracht 2, maak string  [country-naam]
+// is situated in [subarea-name]. It has a population of [amount] people.
+
+    console.log(response.data[0].name)/*array, met 1 object erin, deze bevat bijv name*/
+    console.log(response.data[0].subregion)/*array, met 1 object erin, deze bevat bijv subregion*/
+    console.log(response.data[0].population)/*array, met 1 object erin, deze bevat bijv subregion*/
+    const countryName = response.data[0].name;
+    const subareaName=response.data[0].subregion;
+    const amountPopulation = response.data[0].population
+    const stringOpdracht2 = countryName + "  is situated in " + subareaName +". It has a population of " + amountPopulation +" people."
+
+    console.log("Opdracht 2= ",stringOpdracht2)
+// opdracht 3
+//Maak op basis van de response de volgende string en log dit in de console: The capital is [city]
+
+    console.log(" The capital is", response.data[0].capital)
+
+
 }
+
+
+
+
+
+
+
+
+
 
 
 searchButton.addEventListener("click", getCountryInfo);
