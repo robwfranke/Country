@@ -1,11 +1,9 @@
-console.log("amjhgdc")
-
 const searchButton = document.getElementById("searchButton")
 console.log(searchButton)
 
 
 async function getCountryInfo() {
-    const country = "zimbabwe"
+    const country = "aruba"
     const url = `https://restcountries.eu/rest/v2/name/${country}?fullText=true` /*LET OP BACKTICK!!!!!!!!!!!*/
     console.log("url=", url)
     console.log("get country here", country)
@@ -13,7 +11,7 @@ async function getCountryInfo() {
     console.log("country info??", response)
 
 
-//    hieronder opdracht 2, maak string  [country-naam]
+// opdracht 2, maak string  [country-naam]
 // is situated in [subarea-name]. It has a population of [amount] people.
 
     console.log(response.data[0].name)/*array, met 1 object erin, deze bevat bijv name*/
@@ -67,3 +65,7 @@ async function getCountryInfo() {
 
 
 searchButton.addEventListener("click", getCountryInfo);
+
+
+//  Opdracht 5:
+// duitsland werkt niet, germany wel, Aruba, nederland, zimbabwe werken alle.
