@@ -3,10 +3,10 @@ console.log(searchButton)
 
 
 async function getCountryInfo() {
-    const country = "aruba"
+    const country = "germany"
     const url = `https://restcountries.eu/rest/v2/name/${country}?fullText=true` /*LET OP BACKTICK!!!!!!!!!!!*/
-    console.log("url=", url)
-    console.log("get country here", country)
+    // console.log("url=", url)
+    // console.log("get country here", country)
     const response = await axios.get(url)
     console.log("country info??", response)
 
