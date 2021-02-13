@@ -1,20 +1,23 @@
 const searchButton = document.getElementById("searchButton")
 console.log(searchButton)
 
+const flagOfCountryWeb = ""
 
-const y = 20
 
 async function getCountryInfo() {
 
+    //---------------- eerst ophalen landnaam-------------
+
+    const country = document.getElementById("countryNameWeb").value
+    // ---------------------------------------------------
 
     try {
-        const country = "schweiz"
+        // const country = "schweiz"
         const url = `https://restcountries.eu/rest/v2/name/${country}?fullText=true` /*LET OP BACKTICK!!!!!!!!!!!*/
         // console.log("url=", url)
         // console.log("get country here", country)
         const response = await axios.get(url)
         console.log("country info??", response)
-        y = 30
 
 
 // opdracht 2, maak string  [country-naam]
@@ -98,15 +101,21 @@ async function getCountryInfo() {
         }
 
         console.log(stringOfLanguages)
-
+        //---------------------------------------------------------------
+        //--------------- hier goede vlag in webpage zetten--------------
         const flagOfCountryWeb = document.getElementById("flag")
-        let flagOfCountry = response.data[0].flag
+        const flagOfCountry = response.data[0].flag
         console.log("flagOfCountry", flagOfCountry)
+        flagOfCountryWeb.setAttribute("src", flagOfCountry)
+        flagOfCountryWeb.setAttribute("alt", "flag")
+        //---------------------------------------------------------------
 
-
-        putToWebpage();
 
     } catch (errorDescription) {
+
+
+
+
 
         console.log("error", errorDescription.message)
         console.log("error response", errorDescription.response)
@@ -124,25 +133,16 @@ async function getCountryInfo() {
 
 
 searchButton.addEventListener("click", getCountryInfo);
-searchButton.addEventListener("click", testFunction);
-
-
-function testFunction() {
-
-    console.log("testFunction")
-
-    const textje = document.getElementById("countryNameWeb").value
-    console.log("textje ", textje)
-}
-
-
-function putToWebpage() {
-    console.log("puttowebpage")
-
-    console.log("flagOfCountry", flagOfCountry)
-
-
-}
+// searchButton.addEventListener("click", testFunction);
+//
+//
+// function testFunction() {
+//
+//     console.log("testFunction")
+//
+//     const textje = document.getElementById("countryNameWeb").value
+//     console.log("textje ", textje)
+// }
 
 
 // Get the input field  WANNEER DE ENTER KEY GEDRUKT WORDT, IS DAT NET ALSOF JE DE SEARCH KNOP INDRUKT
