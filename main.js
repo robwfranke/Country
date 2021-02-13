@@ -5,7 +5,7 @@ console.log(searchButton)
 async function getCountryInfo() {
 
     try {
-        const country = "duitsland"
+        const country = "schweiz"
         const url = `https://restcountries.eu/rest/v2/name/${country}?fullText=true` /*LET OP BACKTICK!!!!!!!!!!!*/
         // console.log("url=", url)
         // console.log("get country here", country)
@@ -63,14 +63,40 @@ async function getCountryInfo() {
         console.log("Opdracht 4: lijst met valuta: ", listOfCurrencies)
 
 
+
+        //  Opdracht 5:
+// duitsland werkt niet, germany wel, Aruba, nederland, zimbabwe werken alle.
+
+
         // Bonusopdracht: Maak een functie die ongeacht het aantal talen die in een land gesproken worden, een string maakt:
         //
-        //     1 taal: They speak [language]
+        // 1 taal: They speak [language]
         // 2 talen: They speak [language] and [language]
         // 3 talen: They speak [language], [language] and [language]
         // etc.
-    }
-    catch (errorDescription){
+
+        const numberOfLanguages =response.data[0].languages.length
+
+        let stringOfLanguages = "They speak: " + response.data[0].languages[0].nativeName
+
+        for (let i = 1; i < numberOfLanguages-1; i++) {
+
+            // console.log(response.data[0].languages[i].nativeName)
+
+            if (numberOfLanguages-i>0){
+                stringOfLanguages = stringOfLanguages+", " + response.data[0].languages[i].nativeName
+            }
+
+
+        }
+        if (numberOfLanguages>1){
+
+            stringOfLanguages = stringOfLanguages + " and " +response.data[0].languages[numberOfLanguages-1].nativeName
+        }
+
+        console.log(stringOfLanguages)
+
+    } catch (errorDescription) {
 
         console.log("error", errorDescription.message)
         console.log("error response", errorDescription.response)
@@ -84,14 +110,9 @@ async function getCountryInfo() {
     }
 
 
-
-
-
 }
 
 
 searchButton.addEventListener("click", getCountryInfo);
 
 
-//  Opdracht 5:
-// duitsland werkt niet, germany wel, Aruba, nederland, zimbabwe werken alle.
