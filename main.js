@@ -2,7 +2,10 @@ const searchButton = document.getElementById("searchButton")
 console.log(searchButton)
 
 
+const y = 20
+
 async function getCountryInfo() {
+
 
     try {
         const country = "schweiz"
@@ -11,6 +14,7 @@ async function getCountryInfo() {
         // console.log("get country here", country)
         const response = await axios.get(url)
         console.log("country info??", response)
+        y = 30
 
 
 // opdracht 2, maak string  [country-naam]
@@ -63,7 +67,6 @@ async function getCountryInfo() {
         console.log("Opdracht 4: lijst met valuta: ", listOfCurrencies)
 
 
-
         //  Opdracht 5:
 // duitsland werkt niet, germany wel, Aruba, nederland, zimbabwe werken alle.
 
@@ -75,26 +78,33 @@ async function getCountryInfo() {
         // 3 talen: They speak [language], [language] and [language]
         // etc.
 
-        const numberOfLanguages =response.data[0].languages.length
+        const numberOfLanguages = response.data[0].languages.length
 
         let stringOfLanguages = "They speak: " + response.data[0].languages[0].nativeName
 
-        for (let i = 1; i < numberOfLanguages-1; i++) {
+        for (let i = 1; i < numberOfLanguages - 1; i++) {
 
             // console.log(response.data[0].languages[i].nativeName)
 
-            if (numberOfLanguages-i>0){
-                stringOfLanguages = stringOfLanguages+", " + response.data[0].languages[i].nativeName
+            if (numberOfLanguages - i > 0) {
+                stringOfLanguages = stringOfLanguages + ", " + response.data[0].languages[i].nativeName
             }
 
 
         }
-        if (numberOfLanguages>1){
+        if (numberOfLanguages > 1) {
 
-            stringOfLanguages = stringOfLanguages + " and " +response.data[0].languages[numberOfLanguages-1].nativeName
+            stringOfLanguages = stringOfLanguages + " and " + response.data[0].languages[numberOfLanguages - 1].nativeName
         }
 
         console.log(stringOfLanguages)
+
+        const flagOfCountryWeb = document.getElementById("flag")
+        let flagOfCountry = response.data[0].flag
+        console.log("flagOfCountry", flagOfCountry)
+
+
+        putToWebpage();
 
     } catch (errorDescription) {
 
@@ -114,5 +124,37 @@ async function getCountryInfo() {
 
 
 searchButton.addEventListener("click", getCountryInfo);
+searchButton.addEventListener("click", testFunction);
 
 
+function testFunction() {
+
+    console.log("testFunction")
+
+    const textje = document.getElementById("countryNameWeb").value
+    console.log("textje ", textje)
+}
+
+
+function putToWebpage() {
+    console.log("puttowebpage")
+
+    console.log("flagOfCountry", flagOfCountry)
+
+
+}
+
+
+// Get the input field  WANNEER DE ENTER KEY GEDRUKT WORDT, IS DAT NET ALSOF JE DE SEARCH KNOP INDRUKT
+const input = document.getElementById("countryNameWeb");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("searchButton").click();
+    }
+});
