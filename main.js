@@ -1,3 +1,4 @@
+// const axios = require("axios");
 const searchButton = document.getElementById("searchButton")
 // console.log(searchButton) checking of het bestaat
 //
@@ -37,8 +38,9 @@ async function getCountryInfo() {
 // opdracht 3
 //Maak op basis van de response de volgende string en log dit in de console: The capital is [city]
 
-        const capitalString = response.data[0].capital;
-        console.log("Opdracht 3: The capital is", capitalString)
+        let capitalString = "The capital is " + response.data[0].capital;
+
+        console.log("Opdracht 3:", capitalString)
 
 
         //Opdracht 4
@@ -101,6 +103,8 @@ async function getCountryInfo() {
         }
 
         console.log(stringOfLanguages)
+
+
         //---------------------------------------------------------------
         //--------------- hier goede vlag in webpage zetten--------------
         const flagOfCountryWeb = document.getElementById("flag")
@@ -108,13 +112,23 @@ async function getCountryInfo() {
         console.log("flagOfCountry", flagOfCountry)
         flagOfCountryWeb.setAttribute("src", flagOfCountry)
         flagOfCountryWeb.setAttribute("alt", "flag")
+        const flagCountryToWeb=document.getElementById("flagCountry")
+        flagCountryToWeb.textContent= `${country}`
         //---------------------------------------------------------------
 
 
+        const countryNameStringtoWeb = document.getElementById("countryNameStringWeb")
+        countryNameStringtoWeb.textContent = `${countryNameString}`
+
+        const capitalStringToWeb = document.getElementById("capitalStringWeb")
+        capitalString = capitalString + " and you can pay with " + listOfCurrencies +"'s"
+        capitalStringToWeb.textContent = `${capitalString}`
+
+        const stringOfLanguagesToWeb = document.getElementById("stringOfLanguagesWeb")
+        stringOfLanguagesToWeb.textContent = `${stringOfLanguages}`
+
+
     } catch (errorDescription) {
-
-
-
 
 
         console.log("error", errorDescription.message)
@@ -130,6 +144,7 @@ async function getCountryInfo() {
 
 
 }
+
 // -------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
 //                     AANROEPEN ASYNC FUNCTION getCountryInfo                  //
