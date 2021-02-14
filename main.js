@@ -1,7 +1,7 @@
 const searchButton = document.getElementById("searchButton")
-console.log(searchButton)
-
-const flagOfCountryWeb = ""
+// console.log(searchButton) checking of het bestaat
+//
+// const flagOfCountryWeb = ""
 
 
 async function getCountryInfo() {
@@ -29,16 +29,16 @@ async function getCountryInfo() {
         const countryName = response.data[0].name;
         const subareaName = response.data[0].subregion;
         const amountPopulation = response.data[0].population
-        const stringOpdracht2 = countryName + "  is situated in " + subareaName + ". It has a population of " + amountPopulation + " people."
+        const countryNameString = countryName + "  is situated in " + subareaName + ". It has a population of " + amountPopulation + " people."
 
-        console.log("Opdracht 2= ", stringOpdracht2)
+        console.log("Opdracht 2= ", countryNameString)
 
 
 // opdracht 3
 //Maak op basis van de response de volgende string en log dit in de console: The capital is [city]
 
-        const capital = response.data[0].capital;
-        console.log("Opdracht 3: The capital is", capital)
+        const capitalString = response.data[0].capital;
+        console.log("Opdracht 3: The capital is", capitalString)
 
 
         //Opdracht 4
@@ -130,11 +130,14 @@ async function getCountryInfo() {
 
 
 }
-
-
+// -------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+//                     AANROEPEN ASYNC FUNCTION getCountryInfo                  //
+// -------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
 searchButton.addEventListener("click", getCountryInfo);
-// searchButton.addEventListener("click", testFunction);
-//
+// searchButton.addEventListener("click", testFunction); je kunt meerder async functions
+//op dezelfde searchbutton zetten
 //
 // function testFunction() {
 //
