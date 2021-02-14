@@ -2,7 +2,6 @@
 const searchButton = document.getElementById("searchButton")
 // console.log(searchButton) checking of het bestaat
 //
-// const flagOfCountryWeb = ""
 
 
 async function getCountryInfo() {
@@ -37,19 +36,24 @@ async function getCountryInfo() {
     //------------------------------------------------------------------
 
 
-
     //---------------ophalen landnaam-------------
 
     const country = document.getElementById("countryNameWeb").value
-    // ---------------------------------------------------
+    //------------------------------------------------------------------
+
 
     try {
-        // const country = "schweiz"
         const url = `https://restcountries.eu/rest/v2/name/${country}?fullText=true` /*LET OP BACKTICK!!!!!!!!!!!*/
         // console.log("url=", url)
         // console.log("get country here", country)
         const response = await axios.get(url)
-        console.log("country info??", response)
+
+
+        //---------------ophalen landnaam-------------
+        // Input weghalen
+        //---------------ophalen landnaam-------------
+
+        document.getElementById('countryNameWeb').value = ""
 
 
 // opdracht 2, maak string  [country-naam]
