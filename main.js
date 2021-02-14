@@ -7,7 +7,38 @@ const searchButton = document.getElementById("searchButton")
 
 async function getCountryInfo() {
 
-    //---------------- eerst ophalen landnaam-------------
+    //------------------------------------------------------------------
+    // resetten variabelen/messages
+    //------------------------------------------------------------------
+
+    //resetten errormessage
+    const errorMessageToWeb = document.getElementById("errorMessageWeb")
+    errorMessageToWeb.textContent = ``
+
+
+    // resetten flag en country
+    const flagOfCountryWeb = document.getElementById("flag")
+    flagOfCountryWeb.removeAttribute("src")
+    flagOfCountryWeb.removeAttribute("alt")
+    const flagCountryToWeb = document.getElementById("flagCountry")
+    flagCountryToWeb.textContent = ``
+
+    // resetten text
+
+    const countryNameStringtoWeb = document.getElementById("countryNameStringWeb")
+    countryNameStringtoWeb.textContent = ``
+
+    const capitalStringToWeb = document.getElementById("capitalStringWeb")
+
+    capitalStringToWeb.textContent = ``
+
+    const stringOfLanguagesToWeb = document.getElementById("stringOfLanguagesWeb")
+    stringOfLanguagesToWeb.textContent = ``
+    //------------------------------------------------------------------
+
+
+
+    //---------------ophalen landnaam-------------
 
     const country = document.getElementById("countryNameWeb").value
     // ---------------------------------------------------
@@ -85,14 +116,13 @@ async function getCountryInfo() {
 
         const numberOfLanguages = response.data[0].languages.length
 
-        let stringOfLanguages = "They speak: " + response.data[0].languages[0].nativeName
+        let stringOfLanguages = "They speak " + response.data[0].languages[0].name
 
         for (let i = 1; i < numberOfLanguages - 1; i++) {
 
-            // console.log(response.data[0].languages[i].nativeName)
 
             if (numberOfLanguages - i > 0) {
-                stringOfLanguages = stringOfLanguages + ", " + response.data[0].languages[i].nativeName
+                stringOfLanguages = stringOfLanguages + ", " + response.data[0].languages[i].name
             }
 
 
@@ -112,8 +142,8 @@ async function getCountryInfo() {
         console.log("flagOfCountry", flagOfCountry)
         flagOfCountryWeb.setAttribute("src", flagOfCountry)
         flagOfCountryWeb.setAttribute("alt", "flag")
-        const flagCountryToWeb=document.getElementById("flagCountry")
-        flagCountryToWeb.textContent= `${country}`
+        const flagCountryToWeb = document.getElementById("flagCountry")
+        flagCountryToWeb.textContent = `${country}`
         //---------------------------------------------------------------
 
 
@@ -121,7 +151,7 @@ async function getCountryInfo() {
         countryNameStringtoWeb.textContent = `${countryNameString}`
 
         const capitalStringToWeb = document.getElementById("capitalStringWeb")
-        capitalString = capitalString + " and you can pay with " + listOfCurrencies +"'s"
+        capitalString = capitalString + " and you can pay with " + listOfCurrencies + "'s"
         capitalStringToWeb.textContent = `${capitalString}`
 
         const stringOfLanguagesToWeb = document.getElementById("stringOfLanguagesWeb")
@@ -131,13 +161,16 @@ async function getCountryInfo() {
     } catch (errorDescription) {
 
 
-        console.log("error", errorDescription.message)
-        console.log("error response", errorDescription.response)
-        const message = "Er is iets fout gegaan"
-        const errorElement = document.createElement("h1")
-        errorElement.textContent = message
-        const errorText = document.getElementById("errorMessage");
-        errorText.appendChild(errorElement)
+        const errorMessageToWeb = document.getElementById("errorMessageWeb")
+        errorMessageToWeb.textContent = `Er is iets fout gegaan`
+
+        // console.log("error", errorDescription.message)
+        // console.log("error response", errorDescription.response)
+        // const messageError = "Er is iets fout gegaan"
+        // const errorElement = document.createElement("h1")
+        // errorElement.textContent = messageError
+        // const errorText = document.getElementById("errorMessage");
+        // errorText.appendChild(errorElement)
 
 
     }
