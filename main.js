@@ -1,4 +1,6 @@
-// const axios = require("axios");
+// https://restcountries.eu/#api-endpoints-all
+
+
 const searchButton = document.getElementById("searchButton");
 
 
@@ -110,13 +112,30 @@ async function getCountryInfo() {
         //---------------------------------------------------------------
         //--------------- hier goede vlag in webpage zetten--------------
         //---------------------------------------------------------------
+        //    set background
+
+
+        // geef invoervelden back ground kleur
+        const cFColor = document.getElementById("cF")
+        cFColor.style.backgroundColor = "mediumvioletred"
+        // Kan ook  : const cFColor=document.getElementById("cF").style.backgroundColor="mediumvioletred"
+
+
+        const cTColor = document.getElementById("cT")
+        cTColor.style.backgroundColor = "mediumvioletred"
+        //target nu het "flag" element  Hier nog niet met destructure zie part2
+
 
         const flagOfCountryWeb = document.getElementById("flag");
         const flagOfCountry = response.data[0].flag;
         flagOfCountryWeb.setAttribute("src", flagOfCountry);
         flagOfCountryWeb.setAttribute("alt", "flag");
+
+        //zet landnaam naast vlag
         const flagCountryToWeb = document.getElementById("flagCountry");
         flagCountryToWeb.textContent = `${country}`
+
+
         //---------------------------------------------------------------
 
         //---------------------------------------------------------------
@@ -133,8 +152,11 @@ async function getCountryInfo() {
         stringOfLanguagesToWeb.textContent = `${stringOfLanguages}`;
 
 
-        //***************  END of TRY *****************************************************
+        //----------------------------------------------------------------------------------------
+        //Part 2
 
+
+        //***************  END of TRY *****************************************************
 
 
         //***********************************************************************************
@@ -160,14 +182,19 @@ async function getCountryInfo() {
 searchButton.addEventListener("click", getCountryInfo);
 
 
-
 // Get the input field  WANNEER DE ENTER KEY GEDRUKT WORDT, IS DAT NET ALSOF JE DE SEARCH KNOP INDRUKT
 const input = document.getElementById("countryNameWeb");
 input.addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
+    // if (event.keyCode === 13)
+    if (event.key === "Enter") {
         // Cancel the default action, if needed
         event.preventDefault();
         // Trigger the button element with a click
         document.getElementById("searchButton").click();
     }
 });
+
+
+
+
+

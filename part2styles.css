@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Roboto+Condensed:wght@300&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+    font-size: 46px;
+    font-family: 'Gochi Hand', cursive;
+}
+
+#country-list {
+    list-style-type: none;
+    column-count: 3;
+    max-width: 1000px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    background-color: #FAFAFA;
+    padding: 30px;
+}
+
+/*!*voor de oplossing waar het element alleen in de DOM gezet wordt bij een klik*!*/
+/*.population-text {*/
+/*    margin: 4px;*/
+/*    font-style: italic;*/
+/*    font-size: 12px;*/
+/*}*/
+
+/*!*voor de oplossing waarbij het element er altijd is, alleen zichtbaar of onzichtbaar wordt gemaakt*!*/
+/*.population-dropdown {*/
+/*    margin: 4px;*/
+/*    font-style: italic;*/
+/*    font-size: 12px;*/
+/*    opacity: 0;*/
+/*}*/
+
+/*.visible {*/
+/*    opacity: 1;*/
+/*}*/
+
+/*.country-clickable:hover {*/
+/*    cursor: pointer;*/
+/*}*/
+
+.world-map {
+    width: 1000px;
+}
+
+.flag {
+    width: 20px;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+
+.default {
+    color: black;
+}
+.popString{
+
+    font-size: 12px;
+}

@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <link href="http://fonts.cdnfonts.com/css/sans-comic-sans" rel="stylesheet">
+    
     <title>Country</title>
 </head>
 
 
+
 <body>
+
+<h1>
+    Part 2 <a href="part2.html">Enter</a>
+</h1>
 
 
 
@@ -16,7 +22,7 @@
 
 <div class="containerGlobe">
     <div id="earthGlobe">Let's search some information</div>
-    <img src="assets/earth_rotating_PA_md_wm.gif" height="150" >
+    <img src="assets/earth_rotating_PA_md_wm.gif" height="150" alt="rotating Earth">
 
 
 
@@ -41,7 +47,7 @@
 </h1>
 
 
-<div class="containerFlag">
+<div class="containerFlag" id="cF">
 
 
     <img id="flag" width="300" height="auto"><span id="flagCountry"></span>
@@ -54,7 +60,7 @@
     <div></div>
 </h1>
 
-<div class="containerText">
+<div class="containerText"  id="cT">
     <div id="countryNameStringWeb"></div>
     <div></div>
     <div id="capitalStringWeb"></div>
@@ -62,6 +68,9 @@
     <div id="stringOfLanguagesWeb"></div>
 
 </div>
+
+
+
 
 
 <script src="./node_modules/axios/dist/axios.min.js"></script>
